@@ -5,7 +5,7 @@ MVP として最初に実装する 5 タスク。上から順に実装する。
 ---
 
 ## TASK-01: 方位角計算ロジック（`src/lib/geo.ts`）
-**状態**: [ ] 未着手
+**状態**: [x] 完了
 
 実装内容:
 - `calcBearing(from: UserLocation, to: RainbowSighting): BearingResult` を実装

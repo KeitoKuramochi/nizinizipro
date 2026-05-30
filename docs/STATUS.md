@@ -1,9 +1,9 @@
 # STATUS.md
 
-最終更新: 2026-05-30
+最終更新: 2026-05-30 (TASK-01 完了)
 
 ## 現在のフェーズ
-**Phase 0: プロジェクト初期化 完了**
+**Phase 1: MVP 実装中（TASK-01 完了、TASK-02 着手前）**
 
 ---
 
@@ -20,14 +20,15 @@
 - [x] `.claude/agents/reviewer.md` 作成
 - [x] `.claude/agents/debugger.md` 作成
 - [x] `.claude/agents/researcher.md` 作成
+- [x] TASK-01: `src/types/index.ts` 型定義作成
+- [x] TASK-01: `src/lib/geo.ts` 方位角・距離計算実装
 
 ---
 
 ## 次にやること
-**TASK-01: 方位角計算ロジック**
-- `src/types/index.ts` に型定義を作成
-- `src/lib/geo.ts` に `calcBearing` を実装
-- 参照: `docs/MVP_TASKS.md` TASK-01
+**TASK-02: モックデータ**
+- `src/lib/mockData.ts` に 3〜5 件の `RainbowSighting` モックデータを定義
+- 参照: `docs/MVP_TASKS.md` TASK-02
 
 ---
 
