@@ -43,7 +43,7 @@ feat: clean up project and install suncalc dependency
 
 ## TASK-02: 型定義ファイルの作成
 
-**ステータス**: [WIP]
+**ステータス**: [EVAL]
 **担当**: Generator
 **依存**: TASK-01
 

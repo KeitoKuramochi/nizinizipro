@@ -4,7 +4,7 @@
 
 ## 現在のフェーズ
 
-**Phase**: TASK-01 完了 / TASK-02 待ち
+**Phase**: TASK-02 完了 / TASK-03 待ち
 **最終更新**: 2026-05-31
 **担当エージェント**: Generator
 
@@ -13,7 +13,7 @@
 | TASK | 名前 | ステータス | commit | 備考 |
 |---|---|---|---|---|
 | TASK-01 | プロジェクト初期化・ビルド確認 | [DONE] | 018dd3c | 合格 |
-| TASK-02 | 型定義ファイルの作成 | [WIP] | — | 実装中 |
+| TASK-02 | 型定義ファイルの作成 | [EVAL] | 85042e3 | Evaluator 評価待ち |
 | TASK-03 | 位置情報取得フック | [ ] | — | TASK-02 完了後に着手 |
 | TASK-04 | 太陽位置計算・虹方角計算ロジック | [ ] | — | TASK-03 完了後に着手 |
 | TASK-05 | Open-Meteo API 取得フック | [ ] | — | TASK-03 完了後に着手 |
@@ -30,6 +30,13 @@
 - **commit**: 018dd3c
 - **自己評価**: Next.js 16.2.6 + Tailwind CSS v4 でプロジェクト初期化。suncalc + @types/suncalc インストール済み。npm run build 成功確認。
 - **Evaluator 確認待ち**: npm run build 成功・npm run dev でブラウザにページが表示されること
+
+### TASK-02 完了
+- **日時**: 2026-05-31
+- **変更ファイル**: types/index.ts
+- **commit**: 85042e3
+- **自己評価**: Location / SunPosition / CompassLabel / RainbowDirection / WeatherData / WeatherCondition / FetchStatus の7型を定義。any型なし。npm run build 成功確認。
+- **配置**: プロジェクトルート `types/index.ts`（tsconfig の `@/*` エイリアスが `./*` を指すため）
 
 ## 既知の問題
 
