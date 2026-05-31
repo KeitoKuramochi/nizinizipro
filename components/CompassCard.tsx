@@ -22,7 +22,7 @@ const LABEL_RADIUS = CENTER - 18;
 
 export function CompassCard({ azimuth, compassLabel }: CompassCardProps) {
   return (
-    <div className="flex flex-col items-center gap-4 p-4 w-full max-w-xs mx-auto">
+    <div className="flex flex-col items-center gap-4 p-4 w-full max-w-xs mx-auto bg-white rounded-2xl shadow-sm border border-gray-100">
       <div
         className="relative"
         style={{ width: COMPASS_SIZE, height: COMPASS_SIZE }}
@@ -76,6 +76,7 @@ export function CompassCard({ azimuth, compassLabel }: CompassCardProps) {
                 dominantBaseline="central"
                 fontSize={isCardinal ? 13 : 10}
                 fontWeight={isCardinal ? "bold" : "normal"}
+                fontFamily="sans-serif"
                 fill={label === "N" ? "#ef4444" : "#374151"}
               >
                 {label}

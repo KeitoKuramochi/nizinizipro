@@ -253,7 +253,7 @@ feat: add WeatherCondition display component
 
 ## TASK-08: ホーム画面の組み立て・エラーハンドリング
 
-**ステータス**: [EVAL]
+**ステータス**: [DONE]
 **担当**: Generator
 **依存**: TASK-06, TASK-07
 
@@ -295,7 +295,7 @@ feat: assemble home page with all components and error handling
 
 ## TASK-09: 最終 UI 調整・スマホ対応確認
 
-**ステータス**: [ ]
+**ステータス**: [WIP]
 **担当**: Generator
 **依存**: TASK-08
 

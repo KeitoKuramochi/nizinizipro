@@ -8,7 +8,7 @@ type WeatherConditionProps = {
 export function WeatherCondition({ condition, status }: WeatherConditionProps) {
   if (status === "loading") {
     return (
-      <div className="flex flex-col items-center gap-2 p-4 w-full max-w-xs mx-auto">
+      <div className="flex flex-col items-center gap-2 p-4 w-full max-w-xs mx-auto bg-white rounded-2xl shadow-sm border border-gray-100">
         <p className="text-gray-500 text-sm">気象データ取得中...</p>
       </div>
     );
@@ -16,7 +16,7 @@ export function WeatherCondition({ condition, status }: WeatherConditionProps) {
 
   if (status === "error" || condition === null) {
     return (
-      <div className="flex flex-col items-center gap-2 p-4 w-full max-w-xs mx-auto">
+      <div className="flex flex-col items-center gap-2 p-4 w-full max-w-xs mx-auto bg-white rounded-2xl shadow-sm border border-gray-100">
         <p className="text-red-500 text-sm">気象データの取得に失敗しました</p>
       </div>
     );
@@ -25,7 +25,7 @@ export function WeatherCondition({ condition, status }: WeatherConditionProps) {
   const isGood = condition.status === "出やすい";
 
   return (
-    <div className="flex flex-col items-center gap-3 p-4 w-full max-w-xs mx-auto">
+    <div className="flex flex-col items-center gap-3 p-4 w-full max-w-xs mx-auto bg-white rounded-2xl shadow-sm border border-gray-100">
       {/* バッジ */}
       <span
         className={
