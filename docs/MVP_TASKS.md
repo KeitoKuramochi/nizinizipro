@@ -295,7 +295,7 @@ feat: assemble home page with all components and error handling
 
 ## TASK-09: 最終 UI 調整・スマホ対応確認
 
-**ステータス**: [EVAL]
+**ステータス**: [DONE]
 **担当**: Generator
 **依存**: TASK-08
 
