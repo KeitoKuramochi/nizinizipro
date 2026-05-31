@@ -11,7 +11,7 @@ function AppHeader() {
     <header className="w-full py-4 px-4 border-b border-gray-200 bg-white">
       <div className="max-w-lg mx-auto flex items-center gap-2">
         <span className="text-2xl" aria-hidden="true">🌈</span>
-        <h1 className="text-xl font-bold text-gray-800 tracking-tight">NiziPro</h1>
+        <h1 className="text-xl font-bold text-gray-800 tracking-tight">NiziDoko</h1>
         <span className="text-sm text-gray-500 ml-1">虹の方角チェッカー</span>
       </div>
     </header>

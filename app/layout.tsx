@@ -8,7 +8,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "NiziPro - 虹の方角チェッカー",
+  title: "NiziDoko - 虹の方角チェッカー",
   description: "現在地の太陽位置から虹が見える方角を計算します",
 };
 
