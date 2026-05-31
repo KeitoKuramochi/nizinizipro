@@ -143,7 +143,7 @@ feat: add sun position and rainbow direction calculation
 
 ## TASK-05: Open-Meteo API 取得フック
 
-**ステータス**: [WIP]
+**ステータス**: [EVAL]
 **担当**: Generator
 **依存**: TASK-03
 

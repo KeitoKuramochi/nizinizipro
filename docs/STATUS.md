@@ -4,7 +4,7 @@
 
 ## 現在のフェーズ
 
-**Phase**: TASK-04 実装完了 / Evaluator 評価待ち
+**Phase**: TASK-05 実装完了 / Evaluator 評価待ち
 **最終更新**: 2026-05-31
 **担当エージェント**: Generator
 
@@ -16,13 +16,20 @@
 | TASK-02 | 型定義ファイルの作成 | [DONE] | 85042e3 | 合格 |
 | TASK-03 | 位置情報取得フック | [DONE] | a2d2e32 | 合格 |
 | TASK-04 | 太陽位置計算・虹方角計算ロジック | [DONE] | cd60ae1 | 合格 |
-| TASK-05 | Open-Meteo API 取得フック | [ ] | — | TASK-03 完了後に着手 |
+| TASK-05 | Open-Meteo API 取得フック | [EVAL] | 19b4c97 | Evaluator 評価待ち |
 | TASK-06 | コンパス UI コンポーネント | [ ] | — | TASK-04 完了後に着手 |
 | TASK-07 | 気象条件表示コンポーネント | [ ] | — | TASK-05 完了後に着手 |
 | TASK-08 | ホーム画面の組み立て・エラーハンドリング | [ ] | — | TASK-06, 07 完了後に着手 |
 | TASK-09 | 最終 UI 調整・スマホ対応確認 | [ ] | — | TASK-08 完了後に着手 |
 
 ## 直近の作業ログ
+
+### TASK-05 完了
+- **日時**: 2026-05-31
+- **変更ファイル**: hooks/useWeather.ts（新規）, lib/weatherCondition.ts（新規）, app/page.tsx
+- **commit**: 19b4c97
+- **自己評価**: Open-Meteo API（current=precipitation,cloud_cover）から気象データを取得する useWeather フックを実装。lib/weatherCondition.ts に判定ロジックを分離（雲量>=80→出にくい, 降水量>0かつ雲量<80→出やすい, 降水量=0→出にくい）。app/page.tsx に [TASK-05] ラベルの console.log を追加。npm run build 成功確認。any型・@ts-ignore なし。
+- **Evaluator 確認待ち**: ネットワークタブで api.open-meteo.com へのリクエスト確認・ブラウザコンソールに[TASK-05]ラベルで降水量・雲量・判定結果が出力されること
 
 ### TASK-04 完了
 - **日時**: 2026-05-31
