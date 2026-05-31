@@ -1,9 +1,9 @@
 # STATUS.md
 
-最終更新: 2026-05-30 (TASK-01 完了)
+最終更新: 2026-05-31 (TASK-02 完了)
 
 ## 現在のフェーズ
-**Phase 1: MVP 実装中（TASK-01 完了、TASK-02 着手前）**
+**Phase 1: MVP 実装中（TASK-02 完了、TASK-03 着手前）**
 
 ---
 
@@ -22,13 +22,14 @@
 - [x] `.claude/agents/researcher.md` 作成
 - [x] TASK-01: `src/types/index.ts` 型定義作成
 - [x] TASK-01: `src/lib/geo.ts` 方位角・距離計算実装
+- [x] TASK-02: `src/lib/mockData.ts` モックデータ（5件）作成
 
 ---
 
 ## 次にやること
-**TASK-02: モックデータ**
-- `src/lib/mockData.ts` に 3〜5 件の `RainbowSighting` モックデータを定義
-- 参照: `docs/MVP_TASKS.md` TASK-02
+**TASK-03: 位置情報取得フック**
+- `src/hooks/useGeolocation.ts` を実装
+- 参照: `docs/MVP_TASKS.md` TASK-03
 
 ---
 
