@@ -143,7 +143,7 @@ feat: add sun position and rainbow direction calculation
 
 ## TASK-05: Open-Meteo API 取得フック
 
-**ステータス**: [EVAL]
+**ステータス**: [DONE]
 **担当**: Generator
 **依存**: TASK-03
 
@@ -181,7 +181,7 @@ feat: add Open-Meteo weather data hook
 
 ## TASK-06: コンパス UI コンポーネント
 
-**ステータス**: [ ]
+**ステータス**: [WIP]
 **担当**: Generator
 **依存**: TASK-04
 

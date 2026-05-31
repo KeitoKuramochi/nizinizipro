@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { useWeather } from "@/hooks/useWeather";
 import { getSunPosition, getRainbowDirection, isSunBelowHorizon } from "@/lib/sunCalc";
+import { CompassCard } from "@/components/CompassCard";
 
 // TASK-04 確認用: 東京座標で計算結果を出力
 const TEST_LOCATION = { latitude: 35.6, longitude: 139.7 };
@@ -53,6 +54,11 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center p-4">
       <h1 className="text-2xl font-bold">NiziPro</h1>
       <p className="mt-2 text-gray-600">虹の方角チェッカー</p>
+      {/* TASK-06 確認用: 仮の方位角 135°（南東）でコンパス表示 */}
+      <div className="mt-8 w-full max-w-xs">
+        <p className="text-center text-sm text-gray-500 mb-2">（TASK-06 確認用: 135° 南東）</p>
+        <CompassCard azimuth={135} compassLabel="南東" />
+      </div>
     </main>
   );
 }
