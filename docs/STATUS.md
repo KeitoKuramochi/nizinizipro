@@ -1,49 +1,36 @@
-# STATUS.md
+# STATUS
 
-最終更新: 2026-05-31 (TASK-02 完了)
+> Generator が各 TASK 完了時に更新します。
 
 ## 現在のフェーズ
-**Phase 1: MVP 実装 全タスク完了 ✅**
 
----
+**Phase**: TASK-01 完了 / TASK-02 待ち
+**最終更新**: 2026-05-31
+**担当エージェント**: Generator
 
-## 完了済み
-- [x] Next.js 16 (TypeScript, Tailwind, App Router) プロジェクト初期化
-- [x] `npm run build` 通過確認
-- [x] `git init` と初期コミット
-- [x] `docs/ideas/idea.md` にアイデア保存
-- [x] `CLAUDE.md` 作成（開発ルール）
-- [x] `docs/PROJECT_PLAN.md` 作成
-- [x] `docs/REQUIREMENTS.md` 作成
-- [x] `docs/MVP_TASKS.md` 作成（5 タスク）
-- [x] `docs/ERROR_FIX_LOOP.md` 作成
-- [x] `.claude/agents/reviewer.md` 作成
-- [x] `.claude/agents/debugger.md` 作成
-- [x] `.claude/agents/researcher.md` 作成
-- [x] TASK-01: `src/types/index.ts` 型定義作成
-- [x] TASK-01: `src/lib/geo.ts` 方位角・距離計算実装
-- [x] TASK-02: `src/lib/mockData.ts` モックデータ（5件）作成
-- [x] TASK-03: `src/hooks/useGeolocation.ts` 位置情報取得フック実装
-- [x] TASK-04: `src/components/CompassCard.tsx` SVG コンパス UI 実装
-- [x] TASK-05: `src/app/page.tsx` ホーム画面組み立て（全 TASK 統合）
+## TASK 進捗
 
----
+| TASK | 名前 | ステータス | commit | 備考 |
+|---|---|---|---|---|
+| TASK-01 | プロジェクト初期化・ビルド確認 | [EVAL] | — | Evaluator 評価待ち |
+| TASK-02 | 型定義ファイルの作成 | [ ] | — | TASK-01 完了後に着手 |
+| TASK-03 | 位置情報取得フック | [ ] | — | TASK-02 完了後に着手 |
+| TASK-04 | 太陽位置計算・虹方角計算ロジック | [ ] | — | TASK-03 完了後に着手 |
+| TASK-05 | Open-Meteo API 取得フック | [ ] | — | TASK-03 完了後に着手 |
+| TASK-06 | コンパス UI コンポーネント | [ ] | — | TASK-04 完了後に着手 |
+| TASK-07 | 気象条件表示コンポーネント | [ ] | — | TASK-05 完了後に着手 |
+| TASK-08 | ホーム画面の組み立て・エラーハンドリング | [ ] | — | TASK-06, 07 完了後に着手 |
+| TASK-09 | 最終 UI 調整・スマホ対応確認 | [ ] | — | TASK-08 完了後に着手 |
 
-## 次にやること
-**MVP 完成 — 動作確認と次フェーズの検討**
-- `npm run dev` で動作確認
-- 次ステップ候補: X API 連携 / PWA 対応 / テスト追加
+## 直近の作業ログ
 
----
-
-## ブロッカー
-なし
-
----
+### TASK-01 完了
+- **日時**: 2026-05-31
+- **変更ファイル**: app/page.tsx, app/layout.tsx, app/globals.css, package.json, package-lock.json, tsconfig.json, next-env.d.ts
+- **commit**: （コミット後に更新）
+- **自己評価**: Next.js 16.2.6 + Tailwind CSS v4 でプロジェクト初期化。suncalc + @types/suncalc インストール済み。npm run build 成功確認。
+- **Evaluator 確認待ち**: npm run build 成功・npm run dev でブラウザにページが表示されること
 
 ## 既知の問題
-- `next build` 実行時に workspace root 警告が出るが、ビルドには影響なし
-  ```
-  ⚠ Next.js inferred your workspace root, but it may not be correct.
-  ```
-  将来的には `next.config.ts` で `turbopack.root` を設定して解消する。
+
+- `turbopack.root` に関する警告が出るが、ビルドには影響なし（上位ディレクトリに別の package-lock.json が存在するため）
