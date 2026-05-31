@@ -4,7 +4,7 @@
 
 ## 現在のフェーズ
 
-**Phase**: TASK-07 実装完了 / Evaluator 評価待ち
+**Phase**: TASK-08 実装完了 / Evaluator 評価待ち
 **最終更新**: 2026-05-31
 **担当エージェント**: Generator
 
@@ -19,10 +19,17 @@
 | TASK-05 | Open-Meteo API 取得フック | [DONE] | 19b4c97 | 合格 |
 | TASK-06 | コンパス UI コンポーネント | [DONE] | 6dd7b1c | 合格 |
 | TASK-07 | 気象条件表示コンポーネント | [DONE] | 84e376f | 合格 |
-| TASK-08 | ホーム画面の組み立て・エラーハンドリング | [ ] | — | TASK-06, 07 完了後に着手 |
+| TASK-08 | ホーム画面の組み立て・エラーハンドリング | [EVAL] | 2838745 | Evaluator 評価待ち |
 | TASK-09 | 最終 UI 調整・スマホ対応確認 | [ ] | — | TASK-08 完了後に着手 |
 
 ## 直近の作業ログ
+
+### TASK-08 完了
+- **日時**: 2026-05-31
+- **変更ファイル**: app/page.tsx
+- **commit**: 2838745
+- **自己評価**: app/page.tsx をクリーンな本番実装に書き換え。デバッグ用 console.log・TASK確認用モックデータをすべて削除。geoStatus="loading" 時→「位置情報を取得中...」、geoStatus="error" または location=null 時→「位置情報の許可が必要です。ブラウザの設定から許可してください。」、夜間（isSunBelowHorizon=true）→「現在夜間のため、虹は出ません。」、正常時→CompassCard（実際の虹方角）+ WeatherCondition（気象データ）。weatherStatus="error" 時は「気象データの取得に失敗しました。太陽位置のみ表示しています。」をテキスト表示しCompassCardは維持。any型・@ts-ignore なし。npm run build 成功確認。
+- **Evaluator 確認待ち**: 「位置情報を取得中...」の表示確認・位置情報許可後にCompassCard（0〜360°の数値）とWeatherConditionバッジが表示されること・位置情報ブロック時に「位置情報の許可が必要です」と表示されること・スマホ幅375pxでレイアウトが崩れないこと
 
 ### TASK-07 完了
 - **日時**: 2026-05-31

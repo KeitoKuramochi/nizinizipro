@@ -253,7 +253,7 @@ feat: add WeatherCondition display component
 
 ## TASK-08: ホーム画面の組み立て・エラーハンドリング
 
-**ステータス**: [WIP]
+**ステータス**: [EVAL]
 **担当**: Generator
 **依存**: TASK-06, TASK-07
 
