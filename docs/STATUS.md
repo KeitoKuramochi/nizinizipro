@@ -12,7 +12,7 @@
 
 | TASK | 名前 | ステータス | commit | 備考 |
 |---|---|---|---|---|
-| TASK-01 | プロジェクト初期化・ビルド確認 | [EVAL] | — | Evaluator 評価待ち |
+| TASK-01 | プロジェクト初期化・ビルド確認 | [EVAL] | 018dd3c | Evaluator 評価待ち |
 | TASK-02 | 型定義ファイルの作成 | [ ] | — | TASK-01 完了後に着手 |
 | TASK-03 | 位置情報取得フック | [ ] | — | TASK-02 完了後に着手 |
 | TASK-04 | 太陽位置計算・虹方角計算ロジック | [ ] | — | TASK-03 完了後に着手 |
@@ -27,7 +27,7 @@
 ### TASK-01 完了
 - **日時**: 2026-05-31
 - **変更ファイル**: app/page.tsx, app/layout.tsx, app/globals.css, package.json, package-lock.json, tsconfig.json, next-env.d.ts
-- **commit**: （コミット後に更新）
+- **commit**: 018dd3c
 - **自己評価**: Next.js 16.2.6 + Tailwind CSS v4 でプロジェクト初期化。suncalc + @types/suncalc インストール済み。npm run build 成功確認。
 - **Evaluator 確認待ち**: npm run build 成功・npm run dev でブラウザにページが表示されること
 
