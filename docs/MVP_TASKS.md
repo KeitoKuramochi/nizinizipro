@@ -9,7 +9,7 @@
 
 ## TASK-01: プロジェクト初期化・ビルド確認
 
-**ステータス**: [EVAL]
+**ステータス**: [DONE]
 **担当**: Generator
 
 ### やること
@@ -43,7 +43,7 @@ feat: clean up project and install suncalc dependency
 
 ## TASK-02: 型定義ファイルの作成
 
-**ステータス**: [ ]
+**ステータス**: [WIP]
 **担当**: Generator
 **依存**: TASK-01
 
