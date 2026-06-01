@@ -2,6 +2,7 @@
 
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { useWeather } from "@/hooks/useWeather";
+import { useDeviceOrientation } from "@/hooks/useDeviceOrientation";
 import { getSunPosition, getRainbowDirection, isSunBelowHorizon } from "@/lib/sunCalc";
 import { CompassCard } from "@/components/CompassCard";
 import { WeatherCondition } from "@/components/WeatherCondition";
@@ -33,6 +34,7 @@ function LoadingSpinner() {
 export default function Home() {
   const { location, status: geoStatus, errorMessage: geoError } = useGeolocation();
   const { condition, status: weatherStatus } = useWeather(location);
+  const { heading, isSupported, needsPermission, requestPermission } = useDeviceOrientation();
 
   // 位置情報取得中
   if (geoStatus === "loading") {
@@ -98,8 +100,21 @@ export default function Home() {
           <CompassCard
             azimuth={rainbowDirection.azimuth}
             compassLabel={rainbowDirection.label}
+            deviceHeading={heading}
           />
         </div>
+
+        {/* iOS: 方位センサー許可ボタン */}
+        {isSupported && needsPermission && (
+          <div className="mt-3 w-full max-w-sm">
+            <button
+              onClick={requestPermission}
+              className="w-full py-2 px-4 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-sm font-medium active:bg-blue-100"
+            >
+              🧭 方位センサーを有効にする
+            </button>
+          </div>
+        )}
 
         <div className="mt-4 w-full max-w-sm">
           {weatherStatus === "error" ? (

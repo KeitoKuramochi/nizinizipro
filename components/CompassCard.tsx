@@ -3,6 +3,7 @@ import type { CompassLabel } from "@/types/index";
 type CompassCardProps = {
   azimuth: number;
   compassLabel: CompassLabel;
+  deviceHeading?: number | null;
 };
 
 const COMPASS_DIRECTIONS: { label: string; angle: number }[] = [
@@ -20,20 +21,35 @@ const COMPASS_SIZE = 240;
 const CENTER = COMPASS_SIZE / 2;
 const LABEL_RADIUS = CENTER - 18;
 
-export function CompassCard({ azimuth, compassLabel }: CompassCardProps) {
+const TRANSITION = "transform 0.1s ease-out";
+
+export function CompassCard({ azimuth, compassLabel, deviceHeading }: CompassCardProps) {
+  const hasHeading = typeof deviceHeading === "number";
+
+  // リング: 端末の向きに応じて回転（N が常に真北を向く）
+  const ringRotation = hasHeading ? -deviceHeading : 0;
+
+  // 矢印: 真北からの絶対方位角から端末の向きを差し引く
+  // → 端末をどちらに向けても矢印は実世界の虹方向を指す
+  const arrowRotation = hasHeading ? azimuth - deviceHeading : azimuth;
+
   return (
     <div className="flex flex-col items-center gap-4 p-4 w-full max-w-xs mx-auto bg-white rounded-2xl shadow-sm border border-gray-100">
       <div
         className="relative"
         style={{ width: COMPASS_SIZE, height: COMPASS_SIZE }}
       >
-        {/* 方位盤 SVG */}
+        {/* 方位盤 SVG（端末の向きに連動して回転） */}
         <svg
           width={COMPASS_SIZE}
           height={COMPASS_SIZE}
           viewBox={`0 0 ${COMPASS_SIZE} ${COMPASS_SIZE}`}
           className="absolute inset-0"
           aria-hidden="true"
+          style={{
+            transform: `rotate(${ringRotation}deg)`,
+            transition: TRANSITION,
+          }}
         >
           {/* 外枠円 */}
           <circle
@@ -87,24 +103,26 @@ export function CompassCard({ azimuth, compassLabel }: CompassCardProps) {
           <circle cx={CENTER} cy={CENTER} r={6} fill="#374151" />
         </svg>
 
-        {/* 矢印（方位角に応じて回転） */}
+        {/* 虹方向矢印（実世界の方角を常に指す） */}
         <div
           className="absolute inset-0 flex items-center justify-center"
-          style={{ transform: `rotate(${azimuth}deg)` }}
+          style={{
+            transform: `rotate(${arrowRotation}deg)`,
+            transition: TRANSITION,
+          }}
         >
           <svg
             width={COMPASS_SIZE}
             height={COMPASS_SIZE}
             viewBox={`0 0 ${COMPASS_SIZE} ${COMPASS_SIZE}`}
-            aria-label={`方位角 ${azimuth}度 (${compassLabel})`}
+            aria-label={`虹の方角 ${Math.round(azimuth)}度 (${compassLabel})`}
           >
-            {/* 矢印本体（北向き = 上向き） */}
-            {/* 先端（赤・北側） */}
+            {/* 先端（虹方向・赤） */}
             <polygon
               points={`${CENTER},${CENTER - 70} ${CENTER - 10},${CENTER} ${CENTER + 10},${CENTER}`}
               fill="#ef4444"
             />
-            {/* 後端（灰色・南側） */}
+            {/* 後端（反対方向・灰色） */}
             <polygon
               points={`${CENTER},${CENTER + 70} ${CENTER - 10},${CENTER} ${CENTER + 10},${CENTER}`}
               fill="#9ca3af"
@@ -119,6 +137,11 @@ export function CompassCard({ azimuth, compassLabel }: CompassCardProps) {
           {Math.round(azimuth)}°
         </p>
         <p className="text-lg text-gray-600 mt-1">{compassLabel}</p>
+        {hasHeading && (
+          <p className="text-xs text-gray-400 mt-1">
+            端末の向き: {Math.round(deviceHeading)}°
+          </p>
+        )}
       </div>
     </div>
   );
